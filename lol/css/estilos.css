@@ -1,0 +1,19 @@
+
+@font-face {
+    font-family: receba;
+    src: url('/images/DARKLINOS.ttf');
+}
+
+body{
+    background: url('/images/image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 10vh;
+}
+
+h1{
+    font-size: 70px;
+    text-align: center;
+    color: white;
+    font-family: receba;
+}
