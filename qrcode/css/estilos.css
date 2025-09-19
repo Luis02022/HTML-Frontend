@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video{
+    min-width: 100vh;
+    z-index: -1;
+    position: fixed;
+    object-fit: cover;
+}
+
+.central{
+    background: rgba(255, 255, 255, 0.219);
+    width: fit-content;
+    padding: 60px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 1px 1px 18px black;
+}
+
+.central input{
+    padding: 15px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid transparent;
+    width: 80%;
+}
+
+.central input:focus{
+    border: 1px solid black;
+}
+
+.central button{
+    width: 40%;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.central div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
