@@ -1,0 +1,28 @@
+<!-- esqueci.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Recuperar Senha</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Recuperar Senha</h1>
+    <form id="forgotForm">
+      <input type="email" id="recoveryEmail" placeholder="Digite seu email" required>
+      <button type="submit">Enviar instruções</button>
+    </form>
+    <div class="links">
+      <a href="index.html">Voltar ao login</a>
+    </div>
+  </div>
+  <script>
+    document.getElementById('forgotForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Instruções enviadas para o email.");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

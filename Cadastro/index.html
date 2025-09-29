@@ -1,0 +1,36 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Bem-vindo</h1>
+    <p class="subtitle">Faça login para continuar</p>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <div class="links">
+      <a href="esqueci.html">Esqueceu sua senha?</a>
+      <a href="cadastro.html">Cadastre-se</a>
+    </div>
+  </div>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      if (email && password) {
+        window.location.href = "veiculos.html";
+      } else {
+        alert("Preencha os campos corretamente.");
+      }
+    });
+  </script>
+</body>
+</html>

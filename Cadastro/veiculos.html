@@ -1,0 +1,117 @@
+<!-- veiculos.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Veículos</title>
+  <style>
+    /* mesmo CSS com largura maior */
+    body {
+      background: linear-gradient(135deg, #6441A5, #2a73ff);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 50px;
+    }
+    
+
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 800px;
+      
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 14px;
+      border-radius: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 10px;
+    }
+
+    .
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastro de Veículos</h1>
+    <form id="vehicleForm">
+      <input type="text" id="marca" placeholder="Marca" required>
+      <input type="text" id="modelo" placeholder="Modelo" required>
+      <input type="number" id="ano" placeholder="Ano" required>
+      <button type="submit">Salvar</button>
+    </form>
+
+    <h2>Veículos Cadastrados</h2>
+    <table id="vehicleTable">
+      <thead>
+        <tr><th>Marca</th><th>Modelo</th><th>Ano</th><th>Ações</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="links">
+      <a href="index.html">Sair</a>
+    </div>
+  </div>
+  <script>
+    const form = document.getElementById('vehicleForm');
+    const table = document.querySelector('#vehicleTable tbody');
+    let veiculos = [];
+
+    function renderTable() {
+      table.innerHTML = '';
+      veiculos.forEach((v, i) => {
+        table.innerHTML += `
+          <tr>
+            <td>${v.marca}</td>
+            <td>${v.modelo}</td>
+            <td>${v.ano}</td>
+            <td>
+              <button onclick="edit(${i})">Editar</button>
+              <button onclick="remove(${i})">Excluir</button>
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const marca = document.getElementById('marca').value;
+      const modelo = document.getElementById('modelo').value;
+      const ano = document.getElementById('ano').value;
+      veiculos.push({ marca, modelo, ano });
+      form.reset();
+      renderTable();
+    });
+
+    function remove(index) {
+      veiculos.splice(index, 1);
+      renderTable();
+    }
+
+    function edit(index) {
+      const v = veiculos[index];
+      document.getElementById('marca').value = v.marca;
+      document.getElementById('modelo').value = v.modelo;
+      document.getElementById('ano').value = v.ano;
+      veiculos.splice(index, 1);
+      renderTable();
+    }
+  </script>
+</body>
+</html>
